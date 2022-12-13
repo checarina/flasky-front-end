@@ -2,7 +2,7 @@ nav{
     background-color: papayawhip;
 }
 
-a{
+.nav__link{
     display: inline-block;
     margin-right:100px;
     margin-left:20px;

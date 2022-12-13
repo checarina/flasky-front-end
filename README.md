@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Flasky Front End Live Code
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this live code, we will be working with state & events in React.  Then we will use the `useEffect` hook to update state from an API and persist state to an API with events.
 
-## Available Scripts
+## Learning Goals
 
-In the project directory, you can run:
+The goals of this live code are to:
 
-### `yarn start`
+- Gain an ability to use State in a React component and pass information to other components via props
+- Use the `useEffect` hook to update state after the component first mounts
+- Use `axios` to make API calls to update state
+- Write controlled form components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Flasky Back End
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+The features described in each wave of this live code were designed to be used with the Flasky back-end created during C16. The source code for this Flasky can be found [here](https://github.com/adagold/flasky/tree/solution) and the deployed version can be found [here](https://ada-flasky.herokuapp.com).
 
-### `yarn test`
+Your instructors may use the Flasky Back End created for your cohort and your homeroom class. Thus, the exact features they implement may be different from those described below. The React skills practice will be the same regardless of the exact features your class implements. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wave 00: Components and Props
 
-### `yarn build`
+In this wave, we will implement the `Dog` and `DogList` components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+A `Dog` has the following attributes and props: 
+- `id`
+- `name`
+- `age`
+- `breed`
+- `chip` (defaults to an empty string)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Wave 01: State and Event Handling
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+In this wave, we will implement behavior to add a `chip` to a dog. The `chip` should be a random number between 1000 and 9999. The state of a `Dog` will be managed by the `Dog` component.
 
-### `yarn eject`
+## Wave 02: Lifting State Up
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+In this wave, we will lift up state to the `App`. `App` should pass a callback function through `DogList` to `Dog` to implement the `addChip` behavior.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+We will also implement a function in `App` to delete a Dog.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Wave 03:  useEffect And Axios
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### API EndPoints:
 
-## Learn More
+The API is active on Heroku at [`https://ada-flasky.herokuapp.com`](https://ada-flasky.herokuapp.com).
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| Verb  | Path  | Body of Request | What it does  |
+|---|---|---|---|
+| `GET`  | `/dogs`  | None | Retrieves a list of all dogs  |
+| `PATCH`  | `/dogs/<dog_id>/add_chip`  | None  | Adds a randomly generated chip string to dog   |
+| `POST`  | `/dogs`  | `{ name: dogName, age: dogAge, breed: dogBreed }`  | Creates a new Dog  |
+| `DELETE`  | `/dogs/<dog_id>`  | None  | Deletes a dog |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Make Axios requests in `App.js`
 
-### Code Splitting
+We will:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- use the `useEffect` hook to make an API call to get the list of dogs initially.
+- update the callback functions to allow us to delete or add a chip to dogs.
 
-### Analyzing the Bundle Size
+## Wave 04: Adding a Form
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+In this wave, we will add a new component to our App,  `DogForm`.  In this component users will be able to add a new dog, persisting the data to the API.
