@@ -20,12 +20,13 @@ function App() {
     },
     {
       id: 3,
-      name: "My new bike",
-      size: 40,
-      price: 20,
-      type: "new",
+      name: "My new bike!!",
+      size: 80,
+      price: 100,
+      type: "unique",
     },
   ];
+
   return (
     <div>
       <Navbar />
