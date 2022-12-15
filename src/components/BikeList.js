@@ -2,20 +2,20 @@ import PropTypes from "prop-types";
 
 import Bike from "./Bike";
 
-function BikeList({ bikesList }) {
+function BikeList(props) {
   const bikeComponents = [];
+  const bikesList = props.bikesList;
 
   for (const bike of bikesList) {
     bikeComponents.push(
-      <li key={bike.id}>
-        <Bike
-          id={bike.id}
-          name={bike.name}
-          size={bike.size}
-          price={bike.price}
-          type={bike.type}
-        />
-      </li>
+      <Bike
+        key={bike.id}
+        id={bike.id}
+        name={bike.name}
+        size={bike.size}
+        price={bike.price}
+        type={bike.type}
+      />
     );
   }
 
@@ -32,7 +32,7 @@ BikeList.propTypes = {
       name: PropTypes.string.isRequired,
       size: PropTypes.number.isRequired,
       type: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
     })
   ),
 };
