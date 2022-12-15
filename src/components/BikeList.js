@@ -5,6 +5,11 @@ import Bike from "./Bike";
 function BikeList(props) {
   const bikeComponents = [];
   const bikesList = props.bikesList;
+<<<<<<< HEAD
+=======
+  const updatePrice = props.updatePrice;
+  const deleteBike = props.deleteBike;
+>>>>>>> d75966adb0d611d95d2ee5daca2ff867a8f2c81d
 
   for (const bike of bikesList) {
     bikeComponents.push(
@@ -15,6 +20,11 @@ function BikeList(props) {
         size={bike.size}
         price={bike.price}
         type={bike.type}
+<<<<<<< HEAD
+=======
+        updatePrice={updatePrice}
+        deleteBike={deleteBike}
+>>>>>>> d75966adb0d611d95d2ee5daca2ff867a8f2c81d
       />
     );
   }
@@ -35,6 +45,11 @@ BikeList.propTypes = {
       price: PropTypes.number.isRequired,
     })
   ),
+<<<<<<< HEAD
+=======
+  updatePrice: PropTypes.func.isRequired,
+  deleteBike: PropTypes.func.isRequired,
+>>>>>>> d75966adb0d611d95d2ee5daca2ff867a8f2c81d
 };
 
 export default BikeList;

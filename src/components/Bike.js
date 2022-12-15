@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 
 import "./Bike.css";
 
@@ -8,14 +7,17 @@ function Bike(props) {
   const bikeId = props.id;
   const bikeSize = props.size;
   const bikeType = props.type;
-  const [bikePrice, setBikePrice] = useState(props.price);
+  const bikePrice = props.price;
+  const updatePrice = props.updatePrice;
+  const deleteBike = props.deleteBike;
 
   function changeBikePrice(inc) {
     //inc is a boolean flag representing if we are increasing price or decreasing it
     if (inc) {
-      setBikePrice(bikePrice + 1);
+      //bikePrice += 1 WRONG
+      updatePrice(bikeId, bikePrice + 1);
     } else {
-      setBikePrice(bikePrice - 1);
+      updatePrice(bikeId, bikePrice - 1);
     }
   }
 
@@ -56,11 +58,14 @@ function Bike(props) {
       >
         Decrease price
       </button>
+      <button onClick={() => deleteBike(bikeId)}>Delete</button>
     </div>
   );
 }
 
 Bike.propTypes = {
   id: PropTypes.number.isRequired,
+  updatePrice: PropTypes.func.isRequired,
+  deleteBike: PropTypes.func.isRequired,
 };
 export default Bike;
