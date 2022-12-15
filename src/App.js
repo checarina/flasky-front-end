@@ -1,33 +1,3 @@
-<<<<<<< HEAD
-import "./App.css";
-import Navbar from "./components/Navbar";
-import BikeList from "./components/BikeList.js";
-
-function App() {
-  const bikesList = [
-    {
-      id: 1,
-      name: "This is some data that we will work to display next class!",
-      size: 50,
-      price: 100,
-      type: "special",
-    },
-    {
-      id: 2,
-      name: "This is some data that we will work to display next class!",
-      size: 40,
-      price: 20,
-      type: "duplicate",
-    },
-    {
-      id: 3,
-      name: "My new bike!!",
-      size: 80,
-      price: 100,
-      type: "unique",
-    },
-  ];
-=======
 import { useState } from "react";
 
 import "./App.css";
@@ -92,20 +62,15 @@ function App() {
     }
     setBikesList(newBikesList);
   };
->>>>>>> d75966adb0d611d95d2ee5daca2ff867a8f2c81d
 
   return (
     <div>
       <Navbar />
-<<<<<<< HEAD
-      <BikeList bikesList={bikesList} />
-=======
       <BikeList
         bikesList={bikesList}
         updatePrice={updatePrice}
         deleteBike={deleteBike}
       />
->>>>>>> d75966adb0d611d95d2ee5daca2ff867a8f2c81d
       <button>Add Bike</button>
     </div>
   );
